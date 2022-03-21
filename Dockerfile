@@ -1,9 +1,19 @@
-FROM alpine:3.10.1
+FROM alpine
 
-RUN apk add --no-cache fio==3.13-r1
+RUN apk add --no-cache fio bc bash util-linux
+CMD ln -s /usr/bin/fio /usr/local/bin/fio 
 
 COPY jobs /jobs
-VOLUME /data
-WORKDIR /data
+VOLUME /tmp
+WORKDIR /tmp
 
-ENTRYPOINT [ "fio" ]
+ENTRYPOINT [ "bash" ]
+
+
+
+
+
+
+
+
+
